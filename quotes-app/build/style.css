@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Serif|Pacifico|Source+Serif+Pro);h1 {
+  margin: .2em auto;
+  font-size: 2em;
+  font-family: 'Noto Serif', serif;
+  text-align: center;
+}
+
+h3 {
+  margin: .2em auto;
+  font-size: 1.8em;
+  font-family: 'Noto Serif', serif;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  color: #696969;
+}
+
+.Home {
+  width: 100%;
+}
+
+.Home div {
+  margin: 2em auto;
+  padding: 1.5em;
+}
+
+.Home a {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8em;
+}
+
+.author {
+  font-size: 1.5em;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.Quote {
+  width: 100%;
+  text-align: center;
+}
+
+.Quote div {
+  margin: 2em auto;
+  padding: 1.5em;
+  text-align: center;
+}
+
+.Quote .quote {
+  font-size: 2em;
+  font-family: 'Pacifico', cursive;
+}
+
+.Quote a {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Source Serif Pro', serif;
+  display: inline-block;
+}* {
+ margin: 0;
+ padding: 0;
+}
+
+ul, li {
+ list-style: none;
+}
