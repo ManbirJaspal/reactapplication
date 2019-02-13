@@ -42,26 +42,26 @@ quoteController.findById = (req, res) => {
     res.status(500).json({err});
   });
 };
-
-quoteController.addQuote = (req, res) => {
-    
-    const { quote, author } = req.body;
-    console.log(req.body);
- 
-  Quote.addQuote(quote, author)
-  .then(quotes => {
-    // Sends the quote as a JSON object
-    res.json({
-      message: "Success",
-      data: quotes
-    });
-  })
-  .catch(err => {
-    // If something goes wrong it logs the error in the console and sends it as a JSON object
-    console.log(err);
-    res.status(500).json({err});
-  });
-};
-
-// Export the controller
-module.exports = quoteController;
+//
+//quoteController.addQuote = (req, res) => {
+//    
+//    const { quote, author } = req.body;
+//    console.log(req.body);
+// 
+//  Quote.addQuote(quote, author)
+//  .then(quotes => {
+//    // Sends the quote as a JSON object
+//    res.json({
+//      message: "Success",
+//      data: quotes
+//    });
+//  })
+//  .catch(err => {
+//    // If something goes wrong it logs the error in the console and sends it as a JSON object
+//    console.log(err);
+//    res.status(500).json({err});
+//  });
+//};
+//
+//// Export the controller
+//module.exports = quoteController;

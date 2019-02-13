@@ -1,0 +1,49 @@
+1) download node and postgresql (link for psql installation video: https://www.youtube.com/watch?v=5AOkxqFaYEE).
+
+2) In command line go to the main folder(node-api-express) and type "npm install" without the quotes. this will install all the packages and dependencies etc.
+
+3) To set up the database:
+    
+    i)create a db called graddb
+    ii)create a student table with the follwing values. you can just copy and paste this after you have created the graddb database.
+    
+    create table student (
+  sid      serial primary key not null check (sid > 999 and sid < 10000),
+  email    varchar(40),
+  password varchar(20),
+  fname    varchar(20),
+  lname    varchar(20),
+  address1 varchar(40),
+  address2 varchar(40),
+  city     varchar(40),
+  state    varchar(40),
+  zip      int,
+  sType    varchar(5) check (sType in ('MS','PhD','UGRAD')),
+  majorDept    char(4) check (majorDept in ('CSC','MATH','POLS','HIST')),
+  gradAssistant char(1) check (gradAssistant in ('Y','N'))
+);
+ALTER sequence student_sid_seq RESTART WITH 1000;
+
+
+4) After you have created the database and the table,
+
+ go inside then queries.js file. and edit the following or your db connection. 
+ 
+ const Pool = require('pg').Pool
+const pool = new Pool({
+    user: 'your-username', 
+    host: 'localhost',
+    database: 'graddb',
+    password: 'your-password',
+    port: 5432,
+})
+
+
+5) you can set up a password for your specific db like this from the command line:
+
+https://stackoverflow.com/questions/12720967/how-to-change-postgresql-user-password
+
+also, to know whats your username and db name, inside psql command line you type in /conninfo.
+    
+    
+

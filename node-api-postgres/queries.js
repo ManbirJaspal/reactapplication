@@ -1,14 +1,14 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
-    user: 'me', 
+    user: 'manbirsinghjaspal', 
     host: 'localhost',
-    database: 'api',
-    password: 'password',
+    database: 'graddb',
+    password: 'msnjaspal',
     port: 5432,
 })
 
-const getUsers = (request, response) => {
-    pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+const getStudents = (request, response) => {
+    pool.query('SELECT * FROM student ORDER BY sid ASC', (error, results) => {
         if(error) {
             throw error;
         }
@@ -16,10 +16,13 @@ const getUsers = (request, response) => {
     })
 }
 
-const getUserById = (request, response) => {
-    const id = parseInt(request.params.id)
+const getStudentById = (request, response) => {
+    const sid = parseInt(request.params.id)
+    console.log("inside getStudentsbyID")
+    console.log(body);
     
-    pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
+    
+    pool.query('SELECT * FROM student WHERE sid = $1', [sid], (error, results) => {
         if(error) {
             throw error
         }
@@ -27,46 +30,48 @@ const getUserById = (request, response) => {
     })
 }
 
-const createUser = (request, response) => {
-    const { name, email } = request.body;
-    
-    pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, response) => {
-        if (error) {
-            throw error;
-        }
-        
-        response.status(200).send(`User added with ID: ${result.insertId}`)
-    })
-}
-
-const updateUser = (request, response) => {
-    const id = parseInt(request.params.id);
-    const { name, email } = request.body;
-    
-    pool.query(
-    'UPDATE users SET name = $1, email = $2 WHERE id = $3', [name, email, id], (error, results) => {
-        if (error) {
-        throw error
-      }
-      response.status(200).send(`User modified with ID: ${id}`)
-    })
-}
-
-const deleteUser = (request, response) => {
-  const id = parseInt(request.params.id)
-
-  pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
+const createStudent = (request, response) => {
+    console.log("inside createStudent")
+    console.log(request.body)
+  const { sid, email, password, fname, lname } = request.body
+  console.log(email)
+  pool.query('INSERT INTO student ( email, password, fname, lname ) VALUES ($1, $2, $3, $4)', [email, password, fname, lname], (error, result) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`User deleted with ID: ${id}`)
+    response.status(201).send(`User added with ID: ${result.insertId}`)
+  })
+}
+
+const updateStudent = (request, response) => {
+    const sid = parseInt(request.params.id);
+    const { email, password } = request.body;
+    
+    pool.query(
+    'UPDATE student SET email = $1, password = $2 WHERE sid = $3', [email, password, sid], (error, results) => {
+        if (error) {
+        throw error
+      }
+    })
+          response.status(200).send(`User modified with ID: ${sid}`)
+
+}
+
+const deleteStudent = (request, response) => {
+  const sid = parseInt(request.params.id)
+
+  pool.query('DELETE FROM studentudents WHERE sid = $1', [sid], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).send(`User deleted with ID: ${sid}`)
   })
 }
 
 module.exports = {
-  getUsers,
-  getUserById,
-  createUser,
-  updateUser,
-  deleteUser,
+  getStudents,
+  getStudentById,
+  createStudent,
+  updateStudent,
+  deleteStudent,
 }

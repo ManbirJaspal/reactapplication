@@ -8,7 +8,7 @@ pawsController.login = (req, res) => {
     .then(student => {
         res.json({
             message: 'Success',
-            data: email
+            data: student
         });
     })
     .catch(err => {

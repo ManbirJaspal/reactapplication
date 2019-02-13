@@ -19,7 +19,6 @@ quoteRouter.get('/', quoteController.findAll);
 // Request single quote, send it to the /:id route
 quoteRouter.get('/:id', quoteController.findById);
 
-quoteRouter.post('/api/quotes', quoteController.addQuote)
 
 // Export the router
-module.exports = quoteRout;
+module.exports = quoteRouter;
