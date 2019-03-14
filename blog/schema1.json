@@ -1,0 +1,53 @@
+{
+  "definitions": {
+    "schema1": {
+      "type": "array",
+      "items": {
+        "name": {
+          "type": "string"
+        },
+        "cardinality": {
+          "type": "string"
+        },
+        "composite": {
+          "type": "array",
+          "items": {
+            "name": {
+              "type": "string"
+            },
+            "cardinality": {
+              "type": "string"
+            },
+            "composite": {
+              "type": "array",
+              "items": {
+                "name": {
+                  "type": "string"
+                },
+                "cardinality": {
+                  "type": "string"
+                },
+                "simple": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "type": "array",
+          "items": {
+            "name": {
+              "type": "string"
+            },
+            "cardinality": {
+              "type": "string"
+            },
+            "simple": {
+              "type": "string"
+            }
+          },
+          "$ref": "#/definitions/schema1"
+        }
+      }
+    }
+  }
+}

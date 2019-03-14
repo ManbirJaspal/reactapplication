@@ -1,0 +1,54 @@
+{
+"name": "a",
+"cardinality": "1",
+"composite": [
+{
+"name": "b",
+"cardinality": "1",
+"composite": [
+{
+"name": "c",
+"cardinality": "1",
+"simple": "integer"
+},
+{
+"name": "d",
+"cardinality": "1",
+"simple": "string"
+}
+]
+},
+{
+"name": "e",
+"cardinality": "1",
+"composite": [
+{
+"name": "f",
+"cardinality": "1",
+"composite": [
+{
+"name": "g",
+"cardinality": "1",
+"simple": "integer"
+},
+{
+"name": "h",
+"cardinality": "1",
+"simple": "string"
+}
+]
+},
+{
+"name": "j",
+"cardinality": "1",
+"simple": "integer"
+},
+{
+"name": "k",
+"cardinality": "1",
+"simple": "integer"
+}
+]
+}
+]
+}
