@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {signUp} from "../utils/RestUtils";
 
 
+
+
 export class Signup extends Component{
     constructor(props) {
         super(props);
@@ -49,6 +51,7 @@ export class Signup extends Component{
 
     render(){
         return(
+
             <form onSubmit={this.handleSubmit.bind(this)}>
                 <div className="container">
                     <div className="row justify-content-center align-items-center css-form-cont">
@@ -132,4 +135,3 @@ export class Signup extends Component{
         )
     }
 }
-
