@@ -19,10 +19,10 @@ onFormSubmit = (event) =>  {
         return (
           <div className="ui container">
             <div className="search-bar ui segment">
-                <form onSubmit={this.onFormSubmit} className="ui form">
-                    <div className="field">
-                        <label>Group Search</label>
-                        <input onChange={this.onInputChange} type="text" value={this.state.term} />
+              <form onSubmit={this.onFormSubmit} className="ui form">
+                <div className="field">
+                  <label>Group Search</label>
+                  <input onChange={this.onInputChange} type="text" value={this.state.term} />
                     </div>
                 </form>
             </div>

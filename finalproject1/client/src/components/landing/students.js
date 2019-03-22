@@ -8,10 +8,9 @@ export class Students extends Component{
     state = {
             students: [],
         }
-    
 
     componentDidMount() {
-        axios.get(url + "student").then(
+        axios.get(url + "groups").then(
             function(response) {
                 this.setState({ students: response.data });
             }.bind(this),
@@ -24,7 +23,7 @@ export class Students extends Component{
     render(){
         return(
             <div>
-                {JSON.stringify(this.state.students)}
+              {JSON.stringify(this.state.students)}
             </div>
 
         )

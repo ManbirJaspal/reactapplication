@@ -51,25 +51,25 @@ export class Login extends React.Component {
     render(){
         return(
             <form onSubmit={this.handleSubmit.bind(this)}>
-                <div className="container">
-                    <div className="row justify-content-center align-items-center css-form-cont">
-                        <div className="col-md-6">
-                            <h4 className="text-center">Login</h4>
-                            <br/>
-                            <div className="form-group">
-                                <label htmlFor="email">Email</label><span data-name="email"/>
-                                <input type="email" className="form-control" name="emailId" id="email" onChange={this.handleChange.bind(this)}/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="password">Password</label><span/>
-                                <input type="password" className="form-control" name="password" id="password" onChange={this.handleChange.bind(this)}/>
-                            </div>
-                            <div className="text-center">
-                                <button type="submit" className="btn btn-primary">Login</button>
-                            </div>
-                        </div>
+              <div className="container">
+                <div className="row justify-content-center align-items-center css-form-cont">
+                  <div className="col-md-6">
+                    <h4 className="text-center">Login</h4>
+                    <br/>
+                    <div className="form-group">
+                      <label htmlFor="email">Email</label><span data-name="email"/>
+                      <input type="email" className="form-control" name="emailId" id="email" onChange={this.handleChange.bind(this)}/>
                     </div>
+                    <div className="form-group">
+                      <label htmlFor="password">Password</label><span/>
+                      <input type="password" className="form-control" name="password" id="password" onChange={this.handleChange.bind(this)}/>
+                    </div>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-primary">Login</button>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </form>
 
         )
