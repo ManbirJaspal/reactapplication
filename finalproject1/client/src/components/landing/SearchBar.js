@@ -23,8 +23,8 @@ onFormSubmit = (event) =>  {
                 <div className="field">
                   <label>Group Search</label>
                   <input onChange={this.onInputChange} type="text" value={this.state.term} />
-                    </div>
-                </form>
+                </div>
+              </form>
             </div>
             </div>
 

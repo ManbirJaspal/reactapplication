@@ -33,6 +33,7 @@ app.get('/groups', getGroups);
 app.get('/posts', getPosts);
 app.post('/student', createStudent);
 app.post('/login', loginStudent);
+app.get('/comments', getComments);
 
 
 function getStudents (request, response) {
@@ -74,8 +75,20 @@ function getPosts (request, response) {
         if(error) {
             throw error;
         }
-        console.log
         response.status(200).json(results.rows)
+    })
+}
+
+function getComments (request, response) {
+    console.log("inside getComments");
+    const postId = request.query.postId;
+    console.log(postId);
+    var query =`SELECT * FROM comments join posts on comments.post_id = posts.post_id where comments.post_id=${postId}`;
+    pool.query(query, function(error, results) {
+        if(error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
     })
 }
 
