@@ -34,16 +34,40 @@ app.get('/posts', getPosts);
 app.post('/student', createStudent);
 app.post('/login', loginStudent);
 app.get('/comments', getComments);
+app.post('/posts' , createPost);
+
+
+
+function createPost(request,response) {
+  console.log("inside createPost");
+  console.log(request.body);
+
+  const post = request.body.text;
+  const group_id = request.body.group_id;
+  const user_id = request.body.user_id;
+  const post_id = request.body.post_id;
+
+  pool.query('INSERT INTO posts (group_id, user_id, post, post_id)
+  VALUES ($1, $2, $3, $4)', [group_id, user_id, post, post_id],
+  function(error, results)
+  {
+      if(error) {
+          throw error;
+      }
+
+      response.status(200).json(results.rows)
+  })
+  }
 
 
 function getStudents (request, response) {
     console.log("inside getStudents");
 
-    pool.query('SELECT * FROM student ORDER BY student_id ASC', function(error, results) {
+    pool.query('SELECT * FROM student ORDER BY student_id ASC',
         if(error) {
             throw error;
         }
-        console.log
+
         response.status(200).json(results.rows)
     })
 }
@@ -95,6 +119,7 @@ function getComments (request, response) {
 function createStudent (request, response) {
     console.log("inside createStudent");
     console.log(request.body);
+
 
     const email = request.body.emailId,
         password = request.body.password,

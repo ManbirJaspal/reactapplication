@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Full stack express react setup",
   "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
     "concurrently": "^3.6.1",
     "express": "^4.16.3",

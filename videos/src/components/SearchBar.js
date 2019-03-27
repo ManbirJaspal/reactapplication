@@ -10,23 +10,23 @@ onInputChange = (event) => {
 onFormSubmit = (event) => {
     event.preventDefault();
     this.props.onFormSubmit(this.state.term);
-    
-    
+
+
 }
 
-    
+
     render() {
         return (
             <div className="search-bar ui segment">
-                <form onSubmit={this.onFormSubmit} className="ui form">
-                    <div className="field">
-                        <label>VideoSearch</label>
-                        <input onChange={this.onInputChange} type="text" value={this.state.term} />
-                    </div>
-                </form>
+              <form onSubmit={this.onFormSubmit} className="ui form">
+                <div className="field">
+                  <label>VideoSearch</label>
+                  <input onChange={this.onInputChange} type="text" value={this.state.term} />
+                </div>
+              </form>
             </div>
-        
-        );      
+
+        );
     }
 }
 

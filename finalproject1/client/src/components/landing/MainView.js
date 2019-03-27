@@ -32,16 +32,16 @@ class MainView extends React.Component {
             }
 
   onTermSubmit = (term) => {
-      
+
   }
 
   onGetPosts = (response) => {
+    console.log(response.data[0].group_id);
     this.setState({posts: response.data, viewState: 'posts'});
   }
 
   onGroupSelect(id, onGetPosts) {
     console.log("in click handler - "+id);
-    var resp;
     axios.get(url + "posts", {params: {
         groupId: id  }}).then(
       function(response) {
@@ -69,7 +69,6 @@ class MainView extends React.Component {
       }
     );
   }
-
 
 
   render() {

@@ -64,3 +64,9 @@ export function getGroup(groupName) {
   const data = qs.stringify({ group_name: groupName });
   axios.get(url);
 }
+
+export function createPost(userid, post) {
+  const data = qs.stringify({ user_id: userid, post: post});
+
+axios.post()
+}

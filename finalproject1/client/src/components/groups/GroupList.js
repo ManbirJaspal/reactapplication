@@ -14,7 +14,9 @@ const GroupList = ({ groups, onGroupSelect, onGetPosts}) => {
 );
   });
 
-  return <div className="ui relaxed divided list">{renderedList}</div>;
+  return (
+    <div className="ui relaxed divided list">{renderedList}</div>
+);
 };
 
 export default GroupList;
