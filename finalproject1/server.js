@@ -28,7 +28,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/student', getStudents);
+
 app.get('/groups', getGroups);
 app.get('/posts', getPosts);
 app.post('/student', createStudent);
@@ -47,30 +47,18 @@ function createPost(request,response) {
   const user_id = request.body.user_id;
   const post_id = request.body.post_id;
 
-  pool.query('INSERT INTO posts (group_id, user_id, post, post_id)
-  VALUES ($1, $2, $3, $4)', [group_id, user_id, post, post_id],
-  function(error, results)
-  {
-      if(error) {
-          throw error;
-      }
 
-      response.status(200).json(results.rows)
-  })
+
+  pool.query('INSERT INTO student (email, password, fname, lname, address1, address2, city, state, zip) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [email, password, fname, lname, address1, address2, city, state, zip], function(error, result) {
+      if (error) {
+          throw error
+      }
+      response.status(200);
+  });
   }
 
 
-function getStudents (request, response) {
-    console.log("inside getStudents");
 
-    pool.query('SELECT * FROM student ORDER BY student_id ASC',
-        if(error) {
-            throw error;
-        }
-
-        response.status(200).json(results.rows)
-    })
-}
 
 function getGroups (request, response) {
     console.log("inside getgroups");

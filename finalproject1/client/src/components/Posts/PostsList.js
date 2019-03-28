@@ -3,6 +3,7 @@ import PostItem from "./PostItem";
 import CreatePostDialogue from './CreatePostDialogue';
 import axios from 'axios';
 import {url} from '../utils/RestUtils';
+import qs from 'qs';
 
 class PostsList extends React.Component {
 
@@ -20,16 +21,19 @@ class PostsList extends React.Component {
 );
   });
 
-onPostSubmit = (text) => {
 
+
+
+onPostSubmit = (text) => {
+  const data = qs.stringify({
+    group_id: this.props.posts[0].group_id,
+    post: text,
+    user_id: 23,
+    post_id: 50
+  });
       console.log("inside OnPOstSubmit", text);
       console.log(this.props.posts[0].group_id);
-         axios.post(url + "posts", {
-                 group_id: this.props.posts.group_id,
-                 post: text,
-                 user_id: 23,
-                 post_id: 50
-             })
+         axios.post(url + "posts", data)
   .then(
          function(response) {
              console.log("Post created", response);
